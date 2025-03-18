@@ -1,4 +1,4 @@
-//this is a new page I created as part of my react assignment in which it will display the
+//This is a new page I created as part of my react assignment in which it will display the
 //current popular movies 
 
 import React from "react";
@@ -37,4 +37,6 @@ const PopularMovies = (props) => {
       />
   );
   };
+
+  //Exports the page to the site
   export default PopularMovies;
