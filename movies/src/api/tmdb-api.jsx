@@ -33,7 +33,7 @@ export const getPopularMovies = () => {
 
 export const getTopRatedMovies = () => {
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200`
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_KEY}language=en-US&page=1`
   ).then((response) => {
     if (!response.ok) {
       return response.json().then((error) => {
