@@ -32,7 +32,7 @@ const PopularMovies = (props) => {
         title="Discover Popular Movies"
         movies={movies}
         action={(movie) => {
-          return <AddToWatchLaterIcon movie={movie} /> //this will change
+          return <AddToWatchLaterIcon movie={movie} /> 
         }}
       />
   );

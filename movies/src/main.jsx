@@ -11,7 +11,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import UpcomingMovies from './pages/upcomingMovies'
-import { PopularMovies } from "./pages/popularMovies"; 
+import { PopularMovies } from './pages/popularMovies'; 
 
 
 const queryClient = new QueryClient({
