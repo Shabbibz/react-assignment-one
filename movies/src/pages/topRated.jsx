@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToWatchLaterIcon from '../components/cardIcons/addToWatchLater' 
 
-const TopRated = (props) => {
+const TopRatedMovies = (props) => {
 
   const { data, error, isPending, isError  } = useQuery({
     queryKey: ['discoverTopRatedMovies'],
