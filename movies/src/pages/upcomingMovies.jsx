@@ -3,7 +3,7 @@ import { getUpcomingMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
-import AddToWatchLaterIcon from '../components/cardIcons/addToWatchLater' //this will change
+import AddToWatchLaterIcon from '../components/cardIcons/addToWatchLater' 
 
 const UpcomingMovies = (props) => {
 

@@ -11,7 +11,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import UpcomingMovies from './pages/upcomingMovies'
-
+import { getPopularMovies } from "../api/tmdb-api"; 
 
 
 const queryClient = new QueryClient({
@@ -38,6 +38,7 @@ const App = () => {
             <Route path="*" element={ <Navigate to="/" /> } />
             <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
             <Route path="/movies/upcomingMovies" element={<UpcomingMovies />} />
+            <Route path="/movies/popularMovies" element={<PopularMovies />} />
           </Routes>
         </MoviesContextProvider>
       </BrowserRouter>
