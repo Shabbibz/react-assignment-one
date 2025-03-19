@@ -17,7 +17,7 @@ export const getMovies = () => {
 //this is my new pages export, its fetching the 'popular' movies list from the api and displaying onto the new page
 export const getPopularMovies = () => {
   return fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_KEY}language=en-US&include_adult=false&include_video=false&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
   ).then((response) => {
     if (!response.ok) {
       return response.json().then((error) => {
@@ -33,7 +33,7 @@ export const getPopularMovies = () => {
 
 export const getTopRatedMovies = () => {
   return fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_KEY}language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
   ).then((response) => {
     if (!response.ok) {
       return response.json().then((error) => {
