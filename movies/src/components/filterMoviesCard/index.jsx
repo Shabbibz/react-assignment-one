@@ -10,7 +10,6 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../spinner';
 
@@ -58,7 +57,7 @@ export default function FilterMoviesCard(props) {
     return (
         <Card
             sx={{
-                backgroundColor: "rgb(204, 204, 0)"
+                backgroundColor: "rgb(161, 17, 17)", color: "White"
             }}
             variant="outlined">
             <CardContent>
@@ -88,7 +87,7 @@ export default function FilterMoviesCard(props) {
 
                         {genres.map((genre) => {
                             return (
-                                <MenuItem key={genre.id} value={genre.id}>
+                                <MenuItem  key={genre.id} value={genre.id}>
                                     {genre.name}
                                 </MenuItem>
                             );
@@ -97,13 +96,11 @@ export default function FilterMoviesCard(props) {
                 </FormControl>
             </CardContent>
             <CardMedia
-                sx={{ height: 300 }}
-                image={img}
                 title="Filter"
             />
             <CardContent>
                 <Typography variant="h5" component="h1">
-                    <SearchIcon fontSize="large" />
+                    <SearchIcon fontSize="medium" />
                     Filter the movies.
                     <br />
                 </Typography>
