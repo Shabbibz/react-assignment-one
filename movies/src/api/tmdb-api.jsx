@@ -14,6 +14,22 @@ export const getMovies = () => {
   });
 };
 
+export const getNowPlayingMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
+  ).then((response) => {
+    if (!response.ok) {
+      return response.json().then((error) => {
+        throw new Error(error.status_message || "Something went wrong");
+      });
+    }
+    return response.json();
+  })
+  .catch((error) => {
+      throw error
+  });
+};
+
 //this is my new pages export, its fetching the 'popular' movies list from the api and displaying onto the new page
 export const getPopularMovies = () => {
   return fetch(
