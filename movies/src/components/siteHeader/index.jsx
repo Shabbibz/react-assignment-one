@@ -43,10 +43,10 @@ const SiteHeader = ({ history }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" sx={{ background: "black" }} >
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            TMDB Client
+            Assignment One - Movie List's
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
