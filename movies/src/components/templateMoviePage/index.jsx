@@ -3,7 +3,7 @@ import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid2";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getMovieImages } from "../../api/tmdb-api";
+import { getMovieImages, getRecommendations } from "../../api/tmdb-api";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner'
 
@@ -21,10 +21,24 @@ const TemplateMoviePage = ({ movie, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+
+  // const { data1, error1, isPending1, isError1 } = useQuery({
+  //   queryKey: ['recommendations', { id: movie.id }],
+  //   queryFn: getRecommendations,
+  // });
+
+  // if (isPending1) {
+  //   return <Spinner />;
+  // }
+
+  // if (isError1) {
+  //   return <h1>{error1.message}</h1>;
+  // }
   
   const images = data.posters 
+  // const recommendations = data1.results
 
-
+  // console.log(data1.results)
 
   return (
     <>
