@@ -29,7 +29,7 @@ const SiteHeader = ({ history }) => {
     { label: "Upcoming", path: "/movies/upcomingMovies" },
     { label: "Popular", path: "/movies/popularMovies" },
     { label: "Top Rated", path: "/movies/topRated" },
-    { label: "Now Playing", path: "/movies/nowPlaying" },
+    { label: "Top Rated", path: "/movies/topRated" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -43,12 +43,12 @@ const SiteHeader = ({ history }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="black">
+      <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            Assignment One - Movie Pages
+            TMDB Client
           </Typography>
-          <Typography variant="h5" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
             {isMobile ? (
