@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
+import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg' //changed img 
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../spinner';
 
@@ -58,7 +58,7 @@ export default function FilterMoviesCard(props) {
     return (
         <Card
             sx={{
-                backgroundColor: "#c54d4c", color: "White"
+                backgroundColor: "#c54d4c", color: "White" // changed css here
             }}
             variant="outlined">
             <CardContent>
@@ -97,8 +97,8 @@ export default function FilterMoviesCard(props) {
                 </FormControl>
             </CardContent>
             <CardMedia
-                sx={{ height: 436 }}
-                image={img}
+                sx={{ height: 436 }} // chnaged css here
+                image={img} //added new image to replace old one
                 title="Filter"
             />
             <CardContent>
