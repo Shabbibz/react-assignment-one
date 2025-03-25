@@ -23,7 +23,7 @@ export default function MovieRecommendations() {
     <Card>
       <CardHeader
         avatar={
-          movie.recommendation ? (
+          movie.favorite ? (
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
@@ -31,7 +31,7 @@ export default function MovieRecommendations() {
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.recommendation}{" "}
+            {movie.title}{" "}
           </Typography>
         }
       />
@@ -48,13 +48,13 @@ export default function MovieRecommendations() {
           <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {movie.recommendation}
+              {movie.release_date}
             </Typography>
           </Grid>
           <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {movie.recommendation}{" "}
+              {"  "} {movie.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>

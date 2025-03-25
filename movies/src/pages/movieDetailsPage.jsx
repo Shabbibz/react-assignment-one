@@ -7,12 +7,20 @@ import { getMovie } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner'
 
-const MoviePage = (props, recommendations) => {
+// Fetch movie details
+const MoviePage = (props) => {
   const { id } = useParams();
   const { data:movie, error, isPending, isError  } = useQuery({
     queryKey: ['movie', {id: id}],
-    queryFn: getMovie, getRecommendations,
+    queryFn: getMovie,
   })
+
+  
+  // Fetch recommendations
+  const { data: recommendations, error: recError, isPending: isRecLoading, isError: isRecError } = useQuery({
+    queryKey: ['recommendations', { id }],
+    queryFn: () => getRecommendations(id), // 
+  });
 
   if (isPending) {
     return <Spinner />;
@@ -26,23 +34,17 @@ const MoviePage = (props, recommendations) => {
   return (
     <>
       {movie ? (
-        <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie}/>  
-          </PageTemplate>
-        </>
+        <PageTemplate movie={movie}>
+          <MovieDetails movie={movie} />
+        </PageTemplate>
       ) : (
         <p>Waiting for movie details</p>
       )}
-      {recommendations ? (
-        <>
-          <PageTemplate recommendations={recommendations}>
-            <MovieRecommendations v={recommendations} />  
-          </PageTemplate>
-          
-        </>
+
+      {recommendations && recommendations.results.length > 0 ? (
+        <MovieRecommendations recommendations={recommendations.results} />
       ) : (
-        <p>Waiting for movie recommendations</p>
+        <p>No recommendations available</p>
       )}
     </>
   );
