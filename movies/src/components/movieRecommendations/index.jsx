@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import React, { useContext  } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -10,28 +10,24 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import Grid from "@mui/material/Grid2";
-import img from '../../images/film-poster-placeholder.png'
-import Avatar from '@mui/material/Avatar';
-import { MoviesContext } from "../../contexts/moviesContext";
-import { getRecommendations } from "../../api/tmdb-api";
+import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
+import img from "../../images/film-poster-placeholder.png";
 
+export default function MovieRecommendations({ movie }) { 
+  if (!movie) return null; 
 
-export default function MovieRecommendations() {
-    
   return (
     <Card>
       <CardHeader
         avatar={
-          movie.favorite ? (
-            <Avatar sx={{ backgroundColor: 'red' }}>
-              <FavoriteIcon />
-            </Avatar>
-          ) : null
+          <Avatar sx={{ backgroundColor: "red" }}>
+            <FavoriteIcon />
+          </Avatar>
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.title}{" "}
+            {movie.title || "Untitled"} {}
           </Typography>
         }
       />
@@ -42,34 +38,29 @@ export default function MovieRecommendations() {
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
             : img
         }
+        alt={movie.title} 
       />
       <CardContent>
-        <Grid container>
-          <Grid size={{ xs: 6 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={6}> {}
             <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {movie.release_date}
+              <CalendarIcon fontSize="small" /> {movie.release_date || "Unknown"}
             </Typography>
           </Grid>
-          <Grid size={{ xs: 6 }}>
+          <Grid item xs={6}> {}
             <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+              <StarRateIcon fontSize="small" /> {movie.vote_average ?? "N/A"}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-      
-      {action(movie)}
-    
-      <Link to={`/movies/${movie.id}`}>
-        <Button variant="outlined" size="medium" color="primary">
-          More Info ...
-        </Button>
-      </Link>
-      
-    </CardActions>
+        <Link to={`/movies/${movie.id}`} style={{ textDecoration: "none" }}>
+          <Button variant="outlined" size="small" color="primary">
+            More Info ...
+          </Button>
+        </Link>
+      </CardActions>
     </Card>
   );
 }

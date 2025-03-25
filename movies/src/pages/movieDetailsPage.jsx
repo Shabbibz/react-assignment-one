@@ -1,11 +1,14 @@
 import React from "react";
 import { useParams } from 'react-router';
 import { getRecommendations } from '../api/tmdb-api'
+import MovieRecommendations from "../components/movieRecommendations";
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
 import { getMovie } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner'
+import Grid from "@mui/material/Grid"; 
+
 
 // Fetch movie details
 const MoviePage = (props) => {
@@ -16,7 +19,7 @@ const MoviePage = (props) => {
   })
 
   
-  // Fetch recommendations
+// Fetch recommendations
   const { data: recommendations, error: recError, isPending: isRecLoading, isError: isRecError } = useQuery({
     queryKey: ['recommendations', { id }],
     queryFn: () => getRecommendations(id), // 
@@ -41,11 +44,19 @@ const MoviePage = (props) => {
         <p>Waiting for movie details</p>
       )}
 
-      {recommendations && recommendations.results.length > 0 ? (
-        <MovieRecommendations recommendations={recommendations.results} />
-      ) : (
-        <p>No recommendations available</p>
-      )}
+{recommendations?.results?.length > 0 ? ( 
+  
+  <Grid container spacing={2}>
+    {recommendations.results.map((movie) => (
+      <Grid item key={movie.id} xs={12} sm={6} md={4}>
+        <MovieRecommendations movie={movie} />
+      </Grid>
+    ))}
+  </Grid>
+) : (
+  <p>No recommendations available</p>
+)}
+
     </>
   );
 };

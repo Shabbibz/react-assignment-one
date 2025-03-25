@@ -101,9 +101,9 @@ export const getMovie = (args) => {
 };
 
 //New const for getting recommendations added 
-export const getRecommendations = async (movieId) => {
+export const getRecommendations = async (id) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/recommendations??api_key=${import.meta.env.VITE_TMDB_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
   );
   if (!response.ok) {
     throw new Error('Failed to fetch recommendations');
