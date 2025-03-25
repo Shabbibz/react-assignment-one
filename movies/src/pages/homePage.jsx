@@ -19,7 +19,7 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }  
-  
+
   const movies = data.results;
 
   // Redundant, but necessary to avoid app crashing.
@@ -34,7 +34,15 @@ const HomePage = (props) => {
       action={(movie) => {
         return <AddToFavoritesIcon movie={movie} />
       }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: 2,
+        backgroundColor: '#f4f4f4', 
+      }}
     />
-);
+  );
 };
+
 export default HomePage;
