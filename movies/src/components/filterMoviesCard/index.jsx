@@ -64,7 +64,6 @@ export default function FilterMoviesCard(props) {
         alignItems: "center",
         backgroundImage: `url(${img})`,
         backgroundSize: "cover", // Ensures the image covers the area without stretching
-        backgroundPosition: "center bottom", // Centers horizontally, aligns bottom vertically
         backgroundRepeat: "no-repeat", // Prevents image repetition
         position: "fixed", // Fix the filter at the top of the page
         top: 0,

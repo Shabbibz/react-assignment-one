@@ -12,7 +12,7 @@ const RemoveFromWatchLaterIcon = ({ movie }) => {
   };
   return (
     <IconButton
-      aria-label="remove from Watch Later list"
+      aria-label="remove from watch later list"
       onClick={handleRemoveFromWatchLater}
     >
       <DeleteIcon color="primary" fontSize="large" />
