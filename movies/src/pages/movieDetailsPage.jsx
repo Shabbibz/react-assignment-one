@@ -44,7 +44,7 @@ const MoviePage = (props) => {
         <p>Waiting for movie details</p>
       )}
 
-<h1>Movie Recommendations:</h1>
+<h1>Movie:</h1>
 
 {recommendations?.results?.length > 0 ? ( 
   
