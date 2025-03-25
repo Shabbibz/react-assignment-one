@@ -100,8 +100,9 @@ export const getMovie = (args) => {
  });
 };
 
+//New const for getting recommendations added 
 export const getRecommendations = (args) => {
-  console.log(args)
+  // console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(

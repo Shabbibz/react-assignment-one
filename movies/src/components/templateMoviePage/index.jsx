@@ -6,12 +6,13 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages, getRecommendations } from "../../api/tmdb-api";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner'
+import { useParams } from 'react-router';
 
-
-const TemplateMoviePage = ({ movie, children }) => {
+const TemplateMoviePage = ({ movie, children, recommendations }) => {
+  const { id } = useParams();
   const { data, error, isPending, isError } = useQuery({
     queryKey: ['images', { id: movie.id }],
-    queryFn: getMovieImages,
+    queryFn: getMovieImages, getRecommendations,
   });
 
   if (isPending) {
@@ -24,7 +25,7 @@ const TemplateMoviePage = ({ movie, children }) => {
 
   // const { data1, error1, isPending1, isError1 } = useQuery({
   //   queryKey: ['recommendations', { id: movie.id }],
-  //   queryFn: getRecommendations,
+  //   queryFn: ,
   // });
 
   // if (isPending1) {
@@ -36,9 +37,8 @@ const TemplateMoviePage = ({ movie, children }) => {
   // }
   
   const images = data.posters 
-  // const recommendations = data1.results
+  // const recommendations = data1.resultsnp
 
-  // console.log(data1.results)
 
   return (
     <>
