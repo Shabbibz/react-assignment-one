@@ -4,6 +4,8 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToWatchLaterIcon from "../components/cardIcons/addToWatchLater"; 
+
 
 const HomePage = (props) => {
 
@@ -31,9 +33,12 @@ const HomePage = (props) => {
     <PageTemplate
       title="Discover Movies"
       movies={movies}
-      action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
+      action={(movie) => (
+        <>
+          <AddToFavoritesIcon movie={movie} />
+          <AddToWatchLaterIcon movie={movie} />
+        </>
+      )}
       sx={{
         display: 'flex',
         flexDirection: 'column',

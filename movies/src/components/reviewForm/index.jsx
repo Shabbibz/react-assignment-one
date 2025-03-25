@@ -10,8 +10,6 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from "react-router";
 
-
-
 const ratings = [
   {
     value: 5,

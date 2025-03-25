@@ -56,7 +56,7 @@ export default function FilterMoviesCard(props) {
     <Card
       sx={{
         width: "100%",
-        height: "300px", // Increased height to show more of the image
+        height: "245", // Increased height to show more of the image
         backgroundColor: "transparent",
         boxShadow: "none",
         display: "flex",
@@ -66,7 +66,6 @@ export default function FilterMoviesCard(props) {
         backgroundSize: "cover", // Ensures the image covers the area without stretching
         backgroundPosition: "center bottom", // Centers horizontally, aligns bottom vertically
         backgroundRepeat: "no-repeat", // Prevents image repetition
-        color: "white",
         position: "fixed", // Fix the filter at the top of the page
         top: 0,
         zIndex: 1000,
@@ -137,6 +136,7 @@ export default function FilterMoviesCard(props) {
                 value={props.genreFilter}
                 onChange={handleGenreChange}
                 displayEmpty
+                sx={{ paddingTop: "5px" }} // Adjust padding for space
               >
                 {genres.map((genre) => (
                   <MenuItem key={genre.id} value={genre.id}>
