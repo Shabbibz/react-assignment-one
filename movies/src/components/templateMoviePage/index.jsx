@@ -23,22 +23,7 @@ const TemplateMoviePage = ({ movie, children, recommendations }) => {
     return <h1>{error.message}</h1>;
   }
 
-  // const { data1, error1, isPending1, isError1 } = useQuery({
-  //   queryKey: ['recommendations', { id: movie.id }],
-  //   queryFn: ,
-  // });
-
-  // if (isPending1) {
-  //   return <Spinner />;
-  // }
-
-  // if (isError1) {
-  //   return <h1>{error1.message}</h1>;
-  // }
-  
   const images = data.posters 
-  // const recommendations = data1.resultsnp
-
 
   return (
     <>

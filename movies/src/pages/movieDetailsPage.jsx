@@ -44,12 +44,16 @@ const MoviePage = (props) => {
         <p>Waiting for movie details</p>
       )}
 
+<h1>Movie Recommendations:</h1>
+
 {recommendations?.results?.length > 0 ? ( 
   
   <Grid container spacing={2}>
     {recommendations.results.map((movie) => (
       <Grid item key={movie.id} xs={12} sm={6} md={4}>
+        
         <MovieRecommendations movie={movie} />
+
       </Grid>
     ))}
   </Grid>
