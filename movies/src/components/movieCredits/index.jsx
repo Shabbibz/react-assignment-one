@@ -14,8 +14,8 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import img from "../../images/film-poster-placeholder.png";
 
-export default function MovieCredits({ movie }) { 
-  if (!movie) return null; 
+export default function MovieCredits({ movie }) {
+  if (!movie) return null; // Early return if no movie data
 
   return (
     <Card>
@@ -27,7 +27,7 @@ export default function MovieCredits({ movie }) {
         }
         title={
           <Typography variant="h5" component="p">
-            {movie.title || "Untitled"} {}
+            {movie.title || "Untitled"}
           </Typography>
         }
       />
@@ -38,16 +38,16 @@ export default function MovieCredits({ movie }) {
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
             : img
         }
-        alt={movie.title} 
+        alt={movie.title || "Movie Poster"}
       />
       <CardContent>
         <Grid container spacing={2}>
-          <Grid item xs={6}> {}
+          <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" /> {movie.release_date || "Unknown"}
             </Typography>
           </Grid>
-          <Grid item xs={6}> {}
+          <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" /> {movie.vote_average ?? "N/A"}
             </Typography>

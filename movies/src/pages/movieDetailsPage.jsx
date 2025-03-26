@@ -22,30 +22,26 @@ const MoviePage = (props) => {
     queryFn: () => getRecommendations(id),
   });
 
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const recommendationsPerPage = 6;
-  const handleChangePage = (event, value) => {
-    setPage(value);
-  };
+
   const currentRecommendations = recommendations?.results.slice(
     (page - 1) * recommendationsPerPage,
     page * recommendationsPerPage
   );
 
-  // const { data: credits, isPending: isCreLoading, isError: isCreError } = useQuery({
-  //   queryKey: ['credits', { id }],
-  //   queryFn: () => getCredits(id),
-  // });
+  const { data: credits, isPending: isCreLoading, isError: isCreError } = useQuery({
+    queryKey: ['credits', { id }],
+    queryFn: () => getCredits(id),
+  });
 
-  // const [page, setPage] = useState(1);
-  // const creditsPerPage = 6;
-  // const handleChangePage = (event, value) => {
-  //   setPage(value);
-  // };
-  // const currentCredits = credits?.cast.slice(
-  //   (page - 1) * creditsPerPage,
-  //   page * creditsPerPage
-  // );
+  const [page1] = useState(1);
+  const creditsPerPage = 6;
+  const currentCredits = credits?.cast.slice(
+    (page1 - 1) * creditsPerPage,
+    page1 * creditsPerPage
+  );
+  
 
   if (isPending) {
     return <Spinner />;
@@ -62,39 +58,35 @@ const MoviePage = (props) => {
           <MovieDetails movie={movie} />
         </PageTemplate>
       ) : (
-        <p>Waiting for movie details</p>
+        <p>Waiting for movie details...</p>
       )}
-
+  
       <h1>Movie Recommendations:</h1>
-
       {recommendations?.results?.length > 0 ? (
-        <>
-          <Grid container spacing={2}>
-            {currentRecommendations?.map((movie) => (
-              <Grid item key={movie.id} xs={12} sm={6} md={4}>
-                <MovieRecommendations movie={movie} />
-              </Grid>
-            ))}
-          </Grid>
-          
-          <h1>Movie Credits:</h1>
-
-          {/* {credits?.cast?.length > 0 ? (
-        <>
-          <Grid container spacing={2}>
-            {currentCredits?.map((movie) => (
-              <Grid item key={movie.id} xs={12} sm={6} md={4}>
-                <MovieCredits movie={movie} />
-              </Grid>
-            ))}
-          </Grid> */}
-
-        </>
+        <Grid container spacing={2}>
+          {currentRecommendations?.map((movie) => (
+            <Grid item key={movie.id} xs={12} sm={6} md={4}>
+              <MovieRecommendations movie={movie} />
+            </Grid>
+          ))}
+        </Grid>
       ) : (
         <p>No recommendations available</p>
       )}
+  
+      <h1>Movie Credits:</h1>
+      {credits?.cast?.length > 0 ? (
+        <Grid container spacing={2}>
+          {currentCredits?.map((castMember) => (
+            <Grid item key={castMember.id} xs={12} sm={6} md={4}>
+              <MovieCredits castMember={castMember} />
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <p>No credits available</p>
+      )}
     </>
   );
-};
-
+}
 export default MoviePage;
