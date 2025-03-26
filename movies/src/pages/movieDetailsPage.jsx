@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router";
 import { getRecommendations, getMovie, getCredits } from "../api/tmdb-api";
 import MovieRecommendations from "../components/movieRecommendations";
-import MovieCredits from "../components/movieCredits";
+import MovieCredits from "../components/moviecredits";
 import MovieDetails from "../components/movieDetails/";
 import PageTemplate from "../components/templateMoviePage";
 import { useQuery } from "@tanstack/react-query";
