@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router';
-import { getRecommendations } from '../api/tmdb-api'
+import { getRecommendations, getCredits } from '../api/tmdb-api'
 import MovieRecommendations from "../components/movieRecommendations";
 import MovieDetails from "../components/movieDetails/";
 import MovieCredits from "../components/movieCredits";
@@ -9,6 +9,7 @@ import { getMovie } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner'
 import Grid from "@mui/material/Grid";
+import { Typography } from "@mui/material";
 
 const MoviePage = (props) => {
   const { id } = useParams();
@@ -79,7 +80,7 @@ const MoviePage = (props) => {
         <Grid container spacing={2}>
           {currentCredits?.map((castMember) => (
             <Grid item key={castMember.id} xs={12} sm={6} md={4}>
-              <MovieCredits castMember={castMember} />
+              <Typography>{castMember.name}</Typography>
             </Grid>
           ))}
         </Grid>
