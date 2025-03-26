@@ -111,6 +111,17 @@ export const getRecommendations = async (id) => {
   return response.json();
 };
 
+//New const for getting credits added 
+export const getCredits = async (id) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
+  );
+  if (!response.ok) {
+    throw new Error('Failed to fetch recommendations');
+  }
+  return response.json();
+};
+
 export const getGenres = () => {
   return fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
