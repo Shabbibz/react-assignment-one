@@ -10,8 +10,6 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 
-
-
 const root = {
     display: "flex",
     justifyContent: "center",
